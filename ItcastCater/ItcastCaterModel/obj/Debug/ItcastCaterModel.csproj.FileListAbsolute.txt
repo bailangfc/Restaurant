@@ -1,0 +1,5 @@
+E:\CSharpMS\ItcastCater\ItcastCaterModel\bin\Debug\ItcastCaterModel.dll
+E:\CSharpMS\ItcastCater\ItcastCaterModel\bin\Debug\ItcastCaterModel.pdb
+E:\CSharpMS\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.dll
+E:\CSharpMS\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.pdb
+E:\CSharpMS\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.csprojResolveAssemblyReference.cache

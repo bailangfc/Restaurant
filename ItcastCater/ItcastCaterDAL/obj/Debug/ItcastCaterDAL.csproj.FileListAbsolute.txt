@@ -1,0 +1,8 @@
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\bin\Debug\ItcastCaterDAL.dll
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\bin\Debug\ItcastCaterDAL.pdb
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\obj\Debug\ItcastCaterDAL.csprojResolveAssemblyReference.cache
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\obj\Debug\ItcastCaterDAL.dll
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\obj\Debug\ItcastCaterDAL.pdb
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\bin\Debug\ItcastCaterModel.dll
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\bin\Debug\ItcastCaterModel.pdb
+E:\CSharpMS\ItcastCater\ItcastCaterDAL\bin\Debug\System.Data.SQLite.DLL
