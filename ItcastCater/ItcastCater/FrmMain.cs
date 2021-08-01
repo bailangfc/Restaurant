@@ -14,7 +14,7 @@ namespace ItcastCater
     {
         public FrmMain()
         {
-            InitializeComponent();
+            InitializeComponent();//注释
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
