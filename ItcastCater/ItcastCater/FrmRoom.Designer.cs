@@ -116,6 +116,7 @@
             this.btnDelete.TabIndex = 29;
             this.btnDelete.Text = "删除餐桌";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // button3
             // 

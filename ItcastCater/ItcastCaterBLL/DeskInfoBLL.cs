@@ -12,6 +12,25 @@ namespace ItcastCater.BLL
     {
         DeskInfoDAL dal = new DeskInfoDAL();
         /// <summary>
+        /// 删除餐桌
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool DeleteDeskById(int id)
+        {
+            return dal.DeleteDeskById(id) > 0 ? true : false;
+        }
+        /// <summary>
+        /// 根据餐桌的ID查询该餐桌是不是空闲的
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool SerachDeskById(int id)
+        {
+            return  Convert.ToInt32(dal.SerachDeskById(id)) > 0 ? true : false;
+        }
+
+        /// <summary>
         /// 添加和修改餐桌
         /// </summary>
         /// <param name="desk">餐桌对象</param>

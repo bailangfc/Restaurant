@@ -3,3 +3,8 @@ E:\CSharpMS\ItcastCater\ItcastCaterModel\bin\Debug\ItcastCaterModel.pdb
 E:\CSharpMS\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.dll
 E:\CSharpMS\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.pdb
 E:\CSharpMS\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.csprojResolveAssemblyReference.cache
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterModel\bin\Debug\ItcastCaterModel.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterModel\bin\Debug\ItcastCaterModel.pdb
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.csprojResolveAssemblyReference.cache
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterModel\obj\Debug\ItcastCaterModel.pdb

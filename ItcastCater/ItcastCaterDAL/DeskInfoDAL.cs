@@ -11,6 +11,28 @@ namespace ItcastCater.DAL
 {
     public class DeskInfoDAL
     {
+        /// <summary>
+        /// 根据餐桌的ID查询该餐桌是不是空闲的
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public object SerachDeskById(int id)
+        {
+            string sql = "select count(*) from DeskInfo where DelFlag=0 and DeskId=@DeskId and DeskState=0";
+            return SqliteHelper.ExecuteScalar(sql, new SQLiteParameter("@DeskId", id));
+
+        }
+        /// <summary>
+        /// 删除餐桌
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int DeleteDeskById(int id)
+        {
+            string sql = "update DeskInfo set DelFlag=1 where DeskId=@DeskId";
+            return SqliteHelper.ExecuteNonQuery(sql, new SQLiteParameter("@DeskId", id));
+        }
+
         public int AddDeskInfo(DeskInfo desk)
         {
             string sql = "insert into DeskInfo(RoomId,DeskName,DeskRemark,DeskRegion,DeskState,DelFlag,SubTime,SubBy) values(@RoomId,@DeskName,@DeskRemark,@DeskRegion,@DeskState,@DelFlag,@SubTime,@SubBy)";

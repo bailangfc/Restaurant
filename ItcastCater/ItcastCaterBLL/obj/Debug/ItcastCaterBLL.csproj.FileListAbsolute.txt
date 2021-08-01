@@ -8,3 +8,13 @@ E:\CSharpMS\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterModel.dll
 E:\CSharpMS\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterDAL.pdb
 E:\CSharpMS\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterModel.pdb
 E:\CSharpMS\ItcastCater\ItcastCaterBLL\bin\Debug\System.Data.SQLite.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterBLL.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterBLL.pdb
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterDAL.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterModel.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\System.Data.SQLite.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterDAL.pdb
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\bin\Debug\ItcastCaterModel.pdb
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\obj\Debug\ItcastCaterBLL.csprojResolveAssemblyReference.cache
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\obj\Debug\ItcastCaterBLL.dll
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCaterBLL\obj\Debug\ItcastCaterBLL.pdb

@@ -153,5 +153,38 @@ namespace ItcastCater
         }
 
         #endregion
+        //删除餐桌
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            //先判断是否有选中的行
+            if (dgvDeskInfo.SelectedRows.Count > 0)
+            {
+                //获取Id
+                int id = Convert.ToInt32(dgvDeskInfo.SelectedRows[0].Cells[0].Value);
+                //餐桌的状态-- 1使用，0空闲
+                DeskInfoBLL bll = new DeskInfoBLL();
+                if (bll.SerachDeskById(id))
+                {
+                    if ( bll.DeleteDeskById(id))
+                    {
+                        MessageBox.Show("操作成功");
+                        LoadDeskInfoByDelFlag(0);
+                    }
+                    else
+                    {
+                        MessageBox.Show("操作失败");
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("餐桌正在使用，不能删除");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选中行");
+            }
+        }
     }
 }
