@@ -19,7 +19,7 @@ namespace ItcastCater
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
+	//注释，主窗体加载的函数
         }
 
         private void bthMemmber_Click(object sender, EventArgs e)
