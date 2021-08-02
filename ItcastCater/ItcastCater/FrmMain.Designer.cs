@@ -66,7 +66,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.bthMemmber = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnCategory = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -471,14 +471,15 @@
             this.bthMemmber.UseVisualStyleBackColor = true;
             this.bthMemmber.Click += new System.EventHandler(this.bthMemmber_Click);
             // 
-            // button5
+            // btnCategory
             // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.Location = new System.Drawing.Point(479, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(78, 74);
-            this.button5.TabIndex = 4;
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnCategory.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCategory.BackgroundImage")));
+            this.btnCategory.Location = new System.Drawing.Point(479, 12);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(78, 74);
+            this.btnCategory.TabIndex = 4;
+            this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnRoom
             // 
@@ -496,7 +497,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 676);
             this.Controls.Add(this.btnRoom);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnCategory);
             this.Controls.Add(this.bthMemmber);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.splitContainer1);
@@ -533,7 +534,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button bthMemmber;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCategory;
         private System.Windows.Forms.Button btnRoom;
         private System.Windows.Forms.Button btnYinCang;
         private System.Windows.Forms.TabControl tabControl1;

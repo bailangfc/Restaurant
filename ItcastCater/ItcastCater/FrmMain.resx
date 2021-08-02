@@ -2373,7 +2373,7 @@
         /wD///8A////AP///wA=
 </value>
   </data>
-  <data name="button5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCategory.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk1WUwAAAAAAADYAAAAoAAAATAAAAEYAAAABACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgICAAICA
         gACAgIAAgICAAICAgACAgIAAgICAAICAgACAgIAAgICAAICAgACAgIAAgICAAICAgACAgIAAgICAAICA

@@ -33,5 +33,11 @@ namespace ItcastCater
             FrmRoom fm = new FrmRoom();
             fm.ShowDialog();
         }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            FrmCategory frc = new FrmCategory();
+            frc.ShowDialog();
+        }
     }
 }

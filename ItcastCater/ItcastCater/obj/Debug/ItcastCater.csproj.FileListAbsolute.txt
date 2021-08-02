@@ -44,3 +44,4 @@ C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\Itc
 C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.FrmRoom.resources
 C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.Properties.Resources.resources
 C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.csproj.GenerateResource.Cache
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.FrmCategory.resources
