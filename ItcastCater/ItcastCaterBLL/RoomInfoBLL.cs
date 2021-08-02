@@ -12,7 +12,15 @@ namespace ItcastCater.BLL
     {
         RoomInfoDAL dal = new RoomInfoDAL();
 
-
+        /// <summary>
+        /// 根据房间的Id删除该房间
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public bool DeleteRoomInfoByRoomId(int roomId)
+        {
+            return dal.DeleteRoomInfoByRoomId(roomId) > 0 ? true : false;
+        }
 
 
         /// <summary>

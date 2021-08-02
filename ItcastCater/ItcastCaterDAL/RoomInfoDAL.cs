@@ -11,6 +11,16 @@ namespace ItcastCater.DAL
 {
     public class RoomInfoDAL
     {
+        /// <summary>
+        /// 根据房间的Id删除该房间
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public int DeleteRoomInfoByRoomId(int roomId)
+        {
+            string sql = "update RoomInfo set DelFlag=0 where RoomId=@RoomId";
+            return SqliteHelper.ExecuteNonQuery(sql, new SQLiteParameter("@RoomId", roomId));
+        }
 
         public int AddRoomInfo(RoomInfo room)
         {

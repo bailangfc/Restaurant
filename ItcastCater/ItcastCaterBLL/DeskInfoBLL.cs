@@ -11,6 +11,29 @@ namespace ItcastCater.BLL
     public class DeskInfoBLL
     {
         DeskInfoDAL dal = new DeskInfoDAL();
+
+        /// <summary>
+        /// 根据房间的Id删除餐桌
+        /// </summary>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
+        public bool DeleteDeskInfoByRoomId(int roomId)
+        {
+            return dal.DeleteDeskInfoByRoomId(roomId)>0?true:false;
+        }
+
+        /// <summary>
+        /// 查询该房间下是否有正在使用的餐桌
+        /// </summary>
+        /// <param name="roomId">房间的Id</param>
+        /// <returns></returns>
+        public bool GetDeskInfoStateByRoomId(int roomId)
+        {
+            bool a = Convert.ToInt32(dal.GetDeskInfoStateByRoomId(roomId)) > 0 ? true : false;
+            return a;
+        }
+
+       
         /// <summary>
         /// 删除餐桌
         /// </summary>

@@ -190,5 +190,41 @@ namespace ItcastCater
             }
 
         }
+        //房间的删除
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dgvRoomInfo.SelectedRows.Count > 0)
+            {
+                //房间下是否有餐桌
+                
+                if (DialogResult.OK == MessageBox.Show("确定删除吗？", "删除", MessageBoxButtons.OKCancel))
+                {
+                    DeskInfoBLL bll = new DeskInfoBLL();
+                    int roomId = Convert.ToInt32(dgvRoomInfo.SelectedRows[0].Cells[0].Value);
+                    if (bll.GetDeskInfoStateByRoomId(roomId))
+                    {
+                        MessageBox.Show("房间下有正在使用的餐桌，不能删除");
+                    }
+                    else
+                    {
+                        RoomInfoBLL rbll = new RoomInfoBLL();
+                        //先把餐桌删除，再删除房间
+                        if (bll.DeleteDeskInfoByRoomId(roomId)&&rbll.DeleteRoomInfoByRoomId(roomId))
+                        {
+                            MessageBox.Show("操作成功");
+                            LoadRoomInfoByDelFlag(0);
+                            LoadDeskInfoByDelFlag(0);
+                        }else
+                        {
+                            MessageBox.Show("操作失败");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要操作的行");
+            }
+        }
     }
 }
