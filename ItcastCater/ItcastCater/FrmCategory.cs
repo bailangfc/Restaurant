@@ -40,5 +40,76 @@ namespace ItcastCater
             dgvProductInfo.DataSource = bll.GetAllProductInfoByDelFlag(p);
             dgvProductInfo.SelectedRows[0].Selected = false;
         }
+
+        public event EventHandler evtCategory;
+
+        //增加商品类别1
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            ShowFrmChangeCategory(1);
+        }
+        //修改商品类别2---修改
+        private void btnUpdateCategory_Click(object sender, EventArgs e)
+        {
+            
+            if (dgvCategoryInfo.SelectedRows.Count > 0)
+            {
+                //获取选中的id
+                int id =Convert.ToInt32( dgvCategoryInfo.SelectedRows[0].Cells[0].Value);
+                //根据id查询数据
+                CategoryInfoBLL bll = new CategoryInfoBLL();
+                CategoryInfo cat = bll.GetCategoryInfoByCatId(id);
+                cat.Catid = id;
+                fea.obj = cat;
+
+                //传对象
+                ShowFrmChangeCategory(2);
+            }
+            else
+            {
+                MessageBox.Show("请选择要操作的行");
+            }
+        }
+        FrmEventArgs fea = new FrmEventArgs();
+        private void ShowFrmChangeCategory(int p)
+        {
+            FrmChangeCategory fcc = new FrmChangeCategory();
+            this.evtCategory += new EventHandler(fcc.SetText);
+            fea.Temp = p;
+            if (true)
+            {
+                this.evtCategory(this, fea);
+            }
+            fcc.FormClosed += new FormClosedEventHandler(fcc_FormClosed);
+            fcc.ShowDialog();
+        }
+        //刷新
+        private void fcc_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoadCategoryInfoByDelFlag(0);
+        }
+        
+        //删除会员
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            if (dgvCategoryInfo.SelectedRows.Count > 0)
+            {
+                CategoryInfoBLL bll = new CategoryInfoBLL();
+                int id = Convert.ToInt32(dgvCategoryInfo.SelectedRows[0].Cells[0].Value);
+                if (bll.DeleteCategoryInfoByCatId(id))
+                {
+                    MessageBox.Show("删除成功");
+                    LoadCategoryInfoByDelFlag(0);
+                }
+                else
+                {
+                    MessageBox.Show("删除失败");
+                }
+
+            }else
+            {
+                MessageBox.Show("请选择要处理的行");
+            }
+        }
     }
 }

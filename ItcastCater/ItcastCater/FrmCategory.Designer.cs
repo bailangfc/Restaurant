@@ -30,7 +30,7 @@
         {
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.benDeleteCategory = new System.Windows.Forms.Button();
+            this.btnDeleteCategory = new System.Windows.Forms.Button();
             this.btnUpdateCategory = new System.Windows.Forms.Button();
             this.btnAddCategory = new System.Windows.Forms.Button();
             this.btnUpdatePro = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(661, 151);
+            this.txtSearch.Location = new System.Drawing.Point(641, 125);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(121, 21);
             this.txtSearch.TabIndex = 40;
@@ -70,41 +70,44 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(661, 85);
+            this.cmbCategory.Location = new System.Drawing.Point(641, 59);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(121, 20);
             this.cmbCategory.TabIndex = 39;
             // 
-            // benDeleteCategory
+            // btnDeleteCategory
             // 
-            this.benDeleteCategory.Location = new System.Drawing.Point(376, 181);
-            this.benDeleteCategory.Name = "benDeleteCategory";
-            this.benDeleteCategory.Size = new System.Drawing.Size(121, 23);
-            this.benDeleteCategory.TabIndex = 36;
-            this.benDeleteCategory.Text = "删除商品类别";
-            this.benDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Location = new System.Drawing.Point(356, 155);
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(121, 23);
+            this.btnDeleteCategory.TabIndex = 36;
+            this.btnDeleteCategory.Text = "删除商品类别";
+            this.btnDeleteCategory.UseVisualStyleBackColor = true;
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // btnUpdateCategory
             // 
-            this.btnUpdateCategory.Location = new System.Drawing.Point(376, 135);
+            this.btnUpdateCategory.Location = new System.Drawing.Point(356, 109);
             this.btnUpdateCategory.Name = "btnUpdateCategory";
             this.btnUpdateCategory.Size = new System.Drawing.Size(121, 23);
             this.btnUpdateCategory.TabIndex = 37;
             this.btnUpdateCategory.Text = "修改商品类别";
             this.btnUpdateCategory.UseVisualStyleBackColor = true;
+            this.btnUpdateCategory.Click += new System.EventHandler(this.btnUpdateCategory_Click);
             // 
             // btnAddCategory
             // 
-            this.btnAddCategory.Location = new System.Drawing.Point(376, 82);
+            this.btnAddCategory.Location = new System.Drawing.Point(356, 56);
             this.btnAddCategory.Name = "btnAddCategory";
             this.btnAddCategory.Size = new System.Drawing.Size(121, 23);
             this.btnAddCategory.TabIndex = 38;
             this.btnAddCategory.Text = "添加商品类别";
             this.btnAddCategory.UseVisualStyleBackColor = true;
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnUpdatePro
             // 
-            this.btnUpdatePro.Location = new System.Drawing.Point(644, 191);
+            this.btnUpdatePro.Location = new System.Drawing.Point(624, 165);
             this.btnUpdatePro.Name = "btnUpdatePro";
             this.btnUpdatePro.Size = new System.Drawing.Size(75, 23);
             this.btnUpdatePro.TabIndex = 45;
@@ -122,7 +125,7 @@
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dgvCategoryInfo.Location = new System.Drawing.Point(48, 50);
+            this.dgvCategoryInfo.Location = new System.Drawing.Point(28, 24);
             this.dgvCategoryInfo.Name = "dgvCategoryInfo";
             this.dgvCategoryInfo.ReadOnly = true;
             this.dgvCategoryInfo.RowHeadersVisible = false;
@@ -163,7 +166,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(601, 90);
+            this.label2.Location = new System.Drawing.Point(581, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 41;
@@ -172,7 +175,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(601, 151);
+            this.label1.Location = new System.Drawing.Point(581, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 42;
@@ -275,7 +278,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvProductInfo);
-            this.groupBox2.Location = new System.Drawing.Point(48, 220);
+            this.groupBox2.Location = new System.Drawing.Point(28, 194);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(796, 284);
             this.groupBox2.TabIndex = 43;
@@ -283,7 +286,7 @@
             // 
             // btnDeletePro
             // 
-            this.btnDeletePro.Location = new System.Drawing.Point(764, 191);
+            this.btnDeletePro.Location = new System.Drawing.Point(744, 165);
             this.btnDeletePro.Name = "btnDeletePro";
             this.btnDeletePro.Size = new System.Drawing.Size(75, 23);
             this.btnDeletePro.TabIndex = 44;
@@ -292,7 +295,7 @@
             // 
             // btnAddPro
             // 
-            this.btnAddPro.Location = new System.Drawing.Point(519, 191);
+            this.btnAddPro.Location = new System.Drawing.Point(499, 165);
             this.btnAddPro.Name = "btnAddPro";
             this.btnAddPro.Size = new System.Drawing.Size(75, 23);
             this.btnAddPro.TabIndex = 46;
@@ -304,10 +307,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.ClientSize = new System.Drawing.Size(860, 518);
+            this.ClientSize = new System.Drawing.Size(844, 492);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.benDeleteCategory);
+            this.Controls.Add(this.btnDeleteCategory);
             this.Controls.Add(this.btnUpdateCategory);
             this.Controls.Add(this.btnAddCategory);
             this.Controls.Add(this.btnUpdatePro);
@@ -332,7 +335,7 @@
 
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Button benDeleteCategory;
+        private System.Windows.Forms.Button btnDeleteCategory;
         private System.Windows.Forms.Button btnUpdateCategory;
         private System.Windows.Forms.Button btnAddCategory;
         private System.Windows.Forms.Button btnUpdatePro;
