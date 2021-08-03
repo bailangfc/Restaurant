@@ -11,6 +11,82 @@ namespace ItcastCater.DAL
 {
     public class ProductInfoDAL
     {
+        ProductInfo pro = new ProductInfo();
+
+        /// <summary>
+        /// 根据产品的Id来查询产品信息
+        /// </summary>
+        /// <param name="proId"></param>
+        /// <returns></returns>
+        public ProductInfo GetProductInfoByProId(int proId)
+        {
+            string sql = "select * from ProductInfo where DelFlag=0 and ProId=@ProId";
+            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProId",proId));
+            ProductInfo pro = null;
+            if (dt.Rows.Count > 0)
+            {
+                pro = RowToProductInfo(dt.Rows[0]);
+            }
+            return pro;
+        }
+
+
+        //新增
+        public int AddProductInfo(ProductInfo pro)
+        {
+            string sql = "insert into ProductInfo(CatId,ProName,ProCost,ProSpell,ProPrice,ProUnit,Remark,DelFlag,SubTime,ProStock,ProNum,SubBy) values(@CatId,@ProName,@ProCost,@ProSpell,@ProPrice,@ProUnit,@Remark,@DelFlag,@SubTime,@ProStock,@ProNum,@SubBy)";
+            return AddAndUpdateProductInfo(pro, sql, 1);
+        }
+        //修改
+        public int UpdateProductInfo(ProductInfo pro)
+        {
+            string sql = "update ProductInfo set CatId=@CatId,ProName=@ProName,ProCost=@ProCost,ProSpell=@ProSpell,ProPrice=@ProPrice,ProUnit=@ProUnit,Remark=@Remark,ProStock=@ProStock,ProNum=@ProNum where ProId=@ProId";
+            return AddAndUpdateProductInfo(pro, sql, 2);
+        }
+
+        public int AddAndUpdateProductInfo(ProductInfo pro,string sql, int temp)
+        {
+            List<SQLiteParameter> list = new List<SQLiteParameter>();
+            SQLiteParameter[] param =
+            {
+                new SQLiteParameter("@CatId",pro.CatId),
+                new SQLiteParameter("@ProName",pro.ProName),
+                new SQLiteParameter("@ProCost",pro.ProCost),
+                new SQLiteParameter("@ProSpell",pro.ProSpell),
+                new SQLiteParameter("@ProPrice",pro.ProPrice),
+                new SQLiteParameter("@ProUnit",pro.ProUnit),
+                new SQLiteParameter("@Remark",pro.Remark),
+                new SQLiteParameter("@ProStock",pro.ProStock),
+                new SQLiteParameter("@ProNum",pro.ProNum)
+            };
+
+            list.AddRange(param);
+            if (temp == 1)
+            {
+                list.Add(new SQLiteParameter("@DelFlag", pro.DelFlag));
+                list.Add(new SQLiteParameter("@SubTime", pro.SubTime));
+                list.Add(new SQLiteParameter("@SubBy", pro.SubBy));
+            }else if (temp == 2)
+            {
+                list.Add(new SQLiteParameter("@ProId", pro.ProId));
+            }
+            return SqliteHelper.ExecuteNonQuery(sql, list.ToArray());
+        }
+        /// <summary>
+        /// 删除产品
+        /// </summary>
+        /// <param name="id">产品id</param>
+        /// <returns></returns>
+        public int DeleteProductInfoByProId(int id)
+        {
+            string sql = "update ProductInfo set delFlag=1 where proId=@ProId";
+            return SqliteHelper.ExecuteNonQuery(sql, new SQLiteParameter("@ProId", id));
+        }
+
+
+
+
+
         /// <summary>
         /// 查询所有没被删除的产品
         /// </summary>

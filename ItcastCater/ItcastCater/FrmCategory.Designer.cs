@@ -113,6 +113,7 @@
             this.btnUpdatePro.TabIndex = 45;
             this.btnUpdatePro.Text = "修改产品";
             this.btnUpdatePro.UseVisualStyleBackColor = true;
+            this.btnUpdatePro.Click += new System.EventHandler(this.btnUpdatePro_Click);
             // 
             // dgvCategoryInfo
             // 
@@ -292,6 +293,7 @@
             this.btnDeletePro.TabIndex = 44;
             this.btnDeletePro.Text = "删除产品";
             this.btnDeletePro.UseVisualStyleBackColor = true;
+            this.btnDeletePro.Click += new System.EventHandler(this.btnDeletePro_Click);
             // 
             // btnAddPro
             // 
@@ -301,6 +303,7 @@
             this.btnAddPro.TabIndex = 46;
             this.btnAddPro.Text = "增加产品";
             this.btnAddPro.UseVisualStyleBackColor = true;
+            this.btnAddPro.Click += new System.EventHandler(this.btnAddPro_Click);
             // 
             // FrmCategory
             // 

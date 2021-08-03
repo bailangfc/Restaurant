@@ -40,7 +40,7 @@ namespace ItcastCater
             dgvProductInfo.DataSource = bll.GetAllProductInfoByDelFlag(p);
             dgvProductInfo.SelectedRows[0].Selected = false;
         }
-
+        #region 商品类别的增删改
         public event EventHandler evtCategory;
 
         //增加商品类别1
@@ -89,7 +89,7 @@ namespace ItcastCater
             LoadCategoryInfoByDelFlag(0);
         }
         
-        //删除会员
+        //删除商品类别
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
             if (dgvCategoryInfo.SelectedRows.Count > 0)
@@ -111,5 +111,79 @@ namespace ItcastCater
                 MessageBox.Show("请选择要处理的行");
             }
         }
+        #endregion
+
+        #region 产品的增删改
+        public event EventHandler evtPro;
+        FrmEventArgs feas = new FrmEventArgs();
+        private void btnAddPro_Click(object sender, EventArgs e)
+        {
+            ShowFrmChangeProduct(1);
+        }
+
+        private void btnUpdatePro_Click(object sender, EventArgs e)
+        {
+            if (dgvProductInfo.SelectedRows.Count > 0)
+            {
+                //获取要修改的产品的Id
+                //根据id查询该行数据是否真的存在--要获取该行数据
+                //把对象传到另一个窗体中---对象
+                int id = Convert.ToInt32(dgvProductInfo.SelectedRows[0].Cells[0].Value);
+                ProductInfoBLL bll = new ProductInfoBLL();
+                ProductInfo pro = bll.GetProductInfoByProId(id);
+                pro.ProId = id;
+                feas.obj = pro;
+                ShowFrmChangeProduct(2);
+            }
+            else
+            {
+                MessageBox.Show("请选择要操作的行");
+            }
+            
+        }
+
+        public void ShowFrmChangeProduct(int p)
+        {
+            FrmChangeProduct fcp = new FrmChangeProduct();
+            this.evtPro += new EventHandler(fcp.SetText);
+            feas.Temp = p;
+            if (true)
+            {
+                this.evtPro(this, feas);
+            }
+            fcp.FormClosed += new FormClosedEventHandler(fcp_FromClosed);
+            fcp.ShowDialog();
+        }
+
+        private void fcp_FromClosed(object sender, FormClosedEventArgs e)
+        {
+            LoadProductInfoByDelFlag(0);
+        }
+        //删除产品
+        private void btnDeletePro_Click(object sender, EventArgs e)
+        {
+            if (dgvProductInfo.SelectedRows.Count > 0)
+            {
+                ProductInfoBLL bll = new ProductInfoBLL();
+                int id = Convert.ToInt32(dgvProductInfo.SelectedRows[0].Cells[0].Value);
+                //if (bll.DeleteProductInfo(id))
+                //{
+                //    MessageBox.Show("删除成功");
+                //    LoadProductInfoByDelFlag(0);
+                //}
+                //else
+                //{
+                //    MessageBox.Show("删除失败");
+                //}
+                string msg = bll.DeleteProductInfo(id) ? "操作成功" : "操作失败";
+                MessageBox.Show(msg);
+                LoadProductInfoByDelFlag(0);
+
+            }else
+            {
+                MessageBox.Show("请选择要操作的行");
+            }
+        }
+        #endregion
     }
 }
