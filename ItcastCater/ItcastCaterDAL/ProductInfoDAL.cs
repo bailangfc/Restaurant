@@ -14,6 +14,50 @@ namespace ItcastCater.DAL
         ProductInfo pro = new ProductInfo();
 
         /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="proNum"></param>
+        /// <returns></returns>
+        public List<ProductInfo> GetProductByProNum(string proNum)
+        {
+            string sql = "select * from ProductInfo where DelFlag=0 and ProNum like @ProNum";
+            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProNum","%"+ proNum+"%"));
+            List<ProductInfo> list = new List<ProductInfo>();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+                    ProductInfo pro = RowToProductInfo(item);
+                    list.Add(pro);
+                }
+            }
+            return list;
+        }
+
+
+
+        /// <summary>
+        /// 根据商品类别的id查询产品
+        /// </summary>
+        /// <param name="catId"></param>
+        /// <returns></returns>
+        public List<ProductInfo> GetProductInfoByCatId(int catId)
+        {
+            string sql = "select * from ProductInfo where DelFlag=0 and CatId=@CatId";
+            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@CatId", catId));
+            List<ProductInfo> list = new List<ProductInfo>();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+                    ProductInfo pro = RowToProductInfo(item);
+                    list.Add(pro);
+                }
+            }
+            return list;
+        }
+
+        /// <summary>
         /// 根据产品的Id来查询产品信息
         /// </summary>
         /// <param name="proId"></param>

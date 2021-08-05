@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.button1 = new System.Windows.Forms.Button();
@@ -68,6 +69,8 @@
             this.bthMemmber = new System.Windows.Forms.Button();
             this.btnCategory = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
+            this.tcin = new System.Windows.Forms.TabControl();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,6 +78,7 @@
             this.tabControl1.SuspendLayout();
             this.tabPage7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -434,6 +438,10 @@
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.tcin);
+            // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dataGridView1);
@@ -491,6 +499,22 @@
             this.btnRoom.UseVisualStyleBackColor = true;
             this.btnRoom.Click += new System.EventHandler(this.btnRoom_Click);
             // 
+            // tcin
+            // 
+            this.tcin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tcin.Location = new System.Drawing.Point(0, 0);
+            this.tcin.Name = "tcin";
+            this.tcin.SelectedIndex = 0;
+            this.tcin.Size = new System.Drawing.Size(720, 362);
+            this.tcin.TabIndex = 0;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "空闲.png");
+            this.imageList1.Images.SetKeyName(1, "就餐.png");
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -516,6 +540,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -565,6 +590,8 @@
         private System.Windows.Forms.Label lblTablesType_TName;
         private System.Windows.Forms.Label lblTablesAllInfos;
         private System.Windows.Forms.Label labTime;
+        private System.Windows.Forms.TabControl tcin;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

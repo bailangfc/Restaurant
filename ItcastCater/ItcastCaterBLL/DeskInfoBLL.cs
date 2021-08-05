@@ -12,6 +12,17 @@ namespace ItcastCater.BLL
     {
         DeskInfoDAL dal = new DeskInfoDAL();
 
+
+        /// <summary>
+        /// 根据房间的ID查询该房间下的所有餐桌
+        /// </summary>
+        /// <param name="roomId">房间的id</param>
+        /// <returns>餐桌对象</returns>
+        public List<DeskInfo> GetDeskInfoByRoomId(int roomId)
+        {
+            return dal.GetDeskInfoByRoomId(roomId);
+        }
+
         /// <summary>
         /// 根据房间的Id删除餐桌
         /// </summary>

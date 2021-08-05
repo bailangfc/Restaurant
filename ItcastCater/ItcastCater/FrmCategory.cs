@@ -21,9 +21,24 @@ namespace ItcastCater
 
         private void FrmCategory_Load(object sender, EventArgs e)
         {
+            //显示商品类别
             LoadCategoryInfoByDelFlag(0);
+            //显示产品
             LoadProductInfoByDelFlag(0);
+            //加载商品类别
+            LoadCategory();
         }
+
+         private void LoadCategory()
+        {
+            CategoryInfoBLL bll = new CategoryInfoBLL();
+            List<CategoryInfo> list = bll.GetAllCategoryInfoByDelFlag(0);
+            list.Insert(0,new CategoryInfo() { Catid=-1,Catname="请选择"});
+            cmbCategory.DataSource = list;
+            cmbCategory.DisplayMember = "Catname";
+            cmbCategory.ValueMember = "Catid";
+        }
+
         //加载商品类别
         private void LoadCategoryInfoByDelFlag(int p)
         {
@@ -185,5 +200,42 @@ namespace ItcastCater
             }
         }
         #endregion
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbCategory.SelectedIndex == 0)
+            {
+                LoadProductInfoByDelFlag(0);
+            }
+            else
+            {
+                int id =Convert.ToInt32( cmbCategory.SelectedValue);
+                ProductInfoBLL bll = new ProductInfoBLL();
+                List<ProductInfo> list = bll.GetProductInfoByCatId(id);
+                if (list.Count > 0)
+                {
+                    dgvProductInfo.AutoGenerateColumns = false;
+                    dgvProductInfo.DataSource = list;
+                    dgvProductInfo.SelectedRows[0].Selected = false;
+                }
+               
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            //搜索
+            if (!string.IsNullOrEmpty(txtSearch.Text))
+            {
+                ProductInfoBLL bll = new ProductInfoBLL();
+                dgvProductInfo.AutoGenerateColumns = false;
+                dgvProductInfo.DataSource = bll.GetProductByProNum(txtSearch.Text);
+                dgvProductInfo.SelectedRows[0].Selected = false;
+            }
+            else
+            {
+                LoadProductInfoByDelFlag(0);
+            }
+        }
     }
 }

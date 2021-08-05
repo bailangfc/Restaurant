@@ -33,6 +33,27 @@ namespace ItcastCater.DAL
             return SqliteHelper.ExecuteScalar(sql, new SQLiteParameter("@RoomId", roomId));
         }
 
+        /// <summary>
+        /// 根据房间的ID查询该房间下的所有餐桌
+        /// </summary>
+        /// <param name="roomId">房间的id</param>
+        /// <returns>餐桌对象</returns>
+        public List<DeskInfo> GetDeskInfoByRoomId(int roomId)
+        {
+            string sql = "select * from DeskInfo where DelFlag=0 and RoomId=@RoomId";
+            List<DeskInfo> list = new List<DeskInfo>();
+            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@RoomId", roomId));
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+                    DeskInfo dk = RowToDeskInfo(item);
+                    list.Add(dk);
+                }
+            }
+            return list;
+        }
+
 
         /// <summary>
         /// 根据餐桌的ID查询该餐桌是不是空闲的

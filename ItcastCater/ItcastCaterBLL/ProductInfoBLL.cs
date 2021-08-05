@@ -12,6 +12,27 @@ namespace ItcastCater.BLL
     {
         ProductInfoDAL dal = new ProductInfoDAL();
 
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="proNum"></param>
+        /// <returns></returns>
+        public List<ProductInfo> GetProductByProNum(string proNum)
+        {
+            return dal.GetProductByProNum(proNum);
+        }
+
+
+        /// <summary>
+        /// 根据商品类别的id查询产品
+        /// </summary>
+        /// <param name="catId"></param>
+        /// <returns></returns>
+        public List<ProductInfo> GetProductInfoByCatId(int catId)
+        {
+            return dal.GetProductInfoByCatId(catId);
+        }
+
         //新增和修改
         public bool SaveProduct(ProductInfo pro,int temp)
         {
