@@ -12,6 +12,18 @@ namespace ItcastCater.BLL
     {
         DeskInfoDAL dal = new DeskInfoDAL();
 
+        /// <summary>
+        /// 根据餐桌ID修改该餐桌的状态
+        /// </summary>
+        /// <param name="deskId">餐桌id</param>
+        /// <param name="temp">状态，0---空闲，1--使用</param>
+        /// <returns></returns>
+        public bool UpdateDeskStateByDeskId(int deskId, int temp)
+        {
+            return dal.UpdateDeskStateByDeskId(deskId, temp) > 0 ? true : false;
+        }
+
+
 
         /// <summary>
         /// 根据房间的ID查询该房间下的所有餐桌

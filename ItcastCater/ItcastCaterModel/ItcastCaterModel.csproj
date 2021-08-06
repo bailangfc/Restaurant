@@ -44,9 +44,11 @@
     <Compile Include="DeskInfo.cs" />
     <Compile Include="MemmberInfo.cs" />
     <Compile Include="MemmberType.cs" />
+    <Compile Include="OrderInfo.cs" />
     <Compile Include="ProductInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomInfo.cs" />
+    <Compile Include="ROrderDesk.cs" />
     <Compile Include="UserInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFrmBilling = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnYinCang = new System.Windows.Forms.Button();
@@ -95,14 +95,15 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // button1
+            // btnFrmBilling
             // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.Location = new System.Drawing.Point(25, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 74);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFrmBilling.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFrmBilling.BackgroundImage")));
+            this.btnFrmBilling.Location = new System.Drawing.Point(25, 9);
+            this.btnFrmBilling.Name = "btnFrmBilling";
+            this.btnFrmBilling.Size = new System.Drawing.Size(80, 74);
+            this.btnFrmBilling.TabIndex = 1;
+            this.btnFrmBilling.UseVisualStyleBackColor = true;
+            this.btnFrmBilling.Click += new System.EventHandler(this.btnFrmBilling_Click);
             // 
             // button2
             // 
@@ -526,7 +527,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnFrmBilling);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMain";
@@ -552,7 +553,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFrmBilling;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;

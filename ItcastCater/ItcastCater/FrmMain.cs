@@ -25,8 +25,16 @@ namespace ItcastCater
             LoadRoomInfoByDelFlag(0);
             //加载餐桌
             TabPage tp = tcin.TabPages[0];
+            //属性值更改时发生
+            tcin.SelectedIndexChanged += new EventHandler(tcin_SelectedIndexChanged);
             LoadDeskByTabPage(tp);
         }
+
+        private void tcin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadDeskByTabPage(tcin.TabPages[tcin.SelectedIndex]);
+        }
+
         //加载房间
         private void LoadRoomInfoByDelFlag(int p)
         {
@@ -58,10 +66,11 @@ namespace ItcastCater
             DeskInfoBLL bll = new DeskInfoBLL();
             List<DeskInfo> listDesk = bll.GetDeskInfoByRoomId(Convert.ToInt32(room.RoomId));
             ListView lv = tp.Controls[0] as ListView;
+            lv.Clear();
             for (int i = 0; i < listDesk.Count; i++)
             {
                 //判断餐桌状态显示对象的图片
-                lv.Items.Add(listDesk[i].DeskName,Convert.ToInt32( listDesk[i].DeskState));
+                lv.Items.Add(listDesk[i].DeskName, Convert.ToInt32(listDesk[i].DeskState));
                 lv.Items[i].Tag = listDesk[i];//餐桌对象
             }
 
@@ -85,6 +94,70 @@ namespace ItcastCater
         {
             FrmCategory frc = new FrmCategory();
             frc.ShowDialog();
+        }
+
+        public event EventHandler evtBill;//开单事件
+        //顾客开单
+        private void btnFrmBilling_Click(object sender, EventArgs e)
+        {
+            //方式一
+            //TabPage tb= tcin.SelectedTab;
+            //方式二
+            TabPage tp = tcin.TabPages[tcin.SelectedIndex];
+            //获取当前选中房间的名字
+            RoomInfo room = tp.Tag as RoomInfo;
+            FrmEventArgs fea = new FrmEventArgs();
+            fea.Money = Convert.ToDecimal(room.RoomMinimunConsume);
+            fea.Name = room.RoomName;
+            
+            //string roomName = room.RoomName;
+            //最低消费
+
+            //获取当前选项卡中的listview控件
+            ListView lv = tp.Controls[0] as ListView;
+
+            //判断是否有选中的餐桌
+            if (lv.SelectedItems.Count > 0)
+            {
+                //获取当前选中的餐桌
+                DeskInfo dk = lv.SelectedItems[0].Tag as DeskInfo;
+                if (dk.DeskState == 0)
+                {
+                    fea.obj = dk;
+                    FrmBilling fbi = new FrmBilling();
+                    this.evtBill += new EventHandler(fbi.SetText);//注册事件
+                    if (this.evtBill != null)
+                    {
+                        this.evtBill(this, fea);
+                    }
+
+                    fbi.FormClosed += new FormClosedEventHandler(fbi_FormClosed);
+
+                    fbi.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("当前餐桌在使用");
+                }
+
+
+                
+            }
+            else
+            {
+                MessageBox.Show("没选中");
+            }
+
+
+            
+        }
+        //开单窗体关闭后刷新
+        private void fbi_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoadDeskByTabPage(tcin.SelectedTab);
+
+
+
         }
     }
 }

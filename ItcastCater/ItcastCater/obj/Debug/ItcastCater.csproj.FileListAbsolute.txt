@@ -47,3 +47,4 @@ C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\Itc
 C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.FrmCategory.resources
 C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.FrmChangeCategory.resources
 C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.FrmChangeProduct.resources
+C:\Users\bailangfc\Source\Repos\Restaurant\ItcastCater\ItcastCater\obj\Debug\ItcastCater.FrmBilling.resources

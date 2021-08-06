@@ -19,5 +19,14 @@ namespace ItcastCater
         /// 对象
         /// </summary>
         public object obj { get; set; }
+
+        /// <summary>
+        /// 存钱
+        /// </summary>
+        public decimal Money { get; set; }
+        /// <summary>
+        /// 名字
+        /// </summary>
+        public string Name { get; set; }
     }
 }

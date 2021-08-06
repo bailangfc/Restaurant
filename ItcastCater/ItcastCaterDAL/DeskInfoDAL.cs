@@ -12,6 +12,25 @@ namespace ItcastCater.DAL
     public class DeskInfoDAL
     {
         /// <summary>
+        /// 根据餐桌ID修改该餐桌的状态
+        /// </summary>
+        /// <param name="deskId">餐桌id</param>
+        /// <param name="temp">状态，0---空闲，1--使用</param>
+        /// <returns></returns>
+        public int UpdateDeskStateByDeskId(int deskId,int temp)
+        {
+            string sql = "update DeskInfo set DeskState=@DeskState where DelFlag=0 and DeskId=@DeskId";
+            SQLiteParameter[] param =
+            {
+                new SQLiteParameter("@DeskState",temp),
+                new SQLiteParameter("@DeskId",deskId)
+            };
+            return  SqliteHelper.ExecuteNonQuery(sql, param);
+        }
+
+
+
+        /// <summary>
         /// 根据房间的Id删除餐桌
         /// </summary>
         /// <param name="roomId"></param>
@@ -179,8 +198,8 @@ namespace ItcastCater.DAL
             desk.DeskName = dr["DeskName"].ToString();
             desk.DeskRegion = dr["DeskRegion"].ToString();
             desk.DeskRemark = dr["DeskRemark"].ToString();
-            //desk.DeskState = Convert.ToInt32(dr[""]);
-             desk.DeskStateString = Convert.ToInt32(dr["DeskState"]) == 0 ? "空闲" : "开桌";
+            desk.DeskState = Convert.ToInt32(dr["DeskState"]);
+            desk.DeskStateString = Convert.ToInt32(dr["DeskState"]) == 0 ? "空闲" : "开桌";
             
             desk.RoomId = Convert.ToInt32(dr["RoomId"]);
             desk.SubBy = Convert.ToInt32(dr["SubBy"]);

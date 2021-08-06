@@ -44,9 +44,12 @@
     <Compile Include="DeskInfoBLL.cs" />
     <Compile Include="MemmberInfoBLL.cs" />
     <Compile Include="MemmberTypeBLL.cs" />
+    <Compile Include="OrderInfoBLL.cs" />
     <Compile Include="ProductInfoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomInfoBLL.cs" />
+    <Compile Include="ROrderDeskBLL.cs" />
+    <Compile Include="R_OrderInfo_ProductBLL.cs" />
     <Compile Include="UserInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>

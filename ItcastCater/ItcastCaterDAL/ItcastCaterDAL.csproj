@@ -48,9 +48,12 @@
     <Compile Include="DeskInfoDAL.cs" />
     <Compile Include="MemmberInfoDAL.cs" />
     <Compile Include="MemmberTypeDAL.cs" />
+    <Compile Include="OrderInfoDAL.cs" />
     <Compile Include="ProductInfoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomInfoDAL.cs" />
+    <Compile Include="ROrderDeskDAL.cs" />
+    <Compile Include="R_OrderInfo_ProductDAL.cs" />
     <Compile Include="SqliteHelper.cs" />
     <Compile Include="UserInfoDAL.cs" />
   </ItemGroup>
