@@ -148,6 +148,7 @@
             this.btnDeleteRorderPro.TabIndex = 0;
             this.btnDeleteRorderPro.Text = "退菜";
             this.btnDeleteRorderPro.UseVisualStyleBackColor = true;
+            this.btnDeleteRorderPro.Click += new System.EventHandler(this.btnDeleteRorderPro_Click);
             // 
             // groupBox6
             // 
@@ -221,6 +222,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(122, 21);
             this.txtSearch.TabIndex = 2;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // label3
             // 
@@ -320,6 +322,7 @@
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduct.Size = new System.Drawing.Size(355, 364);
             this.dgvProduct.TabIndex = 0;
+            this.dgvProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellDoubleClick);
             // 
             // Column1
             // 
@@ -545,6 +548,7 @@
             this.Controls.Add(this.groupBox2);
             this.Name = "FrmAddMoney";
             this.Text = "FrmAddMoney";
+            this.Load += new System.EventHandler(this.FrmAddMoney_Load);
             this.groupBox9.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();

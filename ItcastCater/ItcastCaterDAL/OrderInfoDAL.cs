@@ -11,6 +11,20 @@ namespace ItcastCater.DAL
 {
     public class OrderInfoDAL
     {
+        /// <summary>
+        /// 根据餐桌的id查询正在使用的订单id
+        /// </summary>
+        /// <param name="deskId">餐桌id</param>
+        /// <returns>订单的id</returns>
+        public object GetOrderIdByDeskId(int deskId)
+        {
+            string sql = "select OrderInfo.OrderId from R_Order_Desk inner join OrderInfo on R_Order_Desk.OrderId=OrderInfo.OrderId where OrderState=1 and DeskId=@DeskId";
+            return  SqliteHelper.ExecuteScalar(sql, new SQLiteParameter("@DeskId", deskId));
+            
+        }
+
+
+
 
         /// <summary>
         /// 插入一个订单，返回该订单的id对象
@@ -28,7 +42,11 @@ namespace ItcastCater.DAL
                 new SQLiteParameter("@DelFlag",order.DelFlag),
                 new SQLiteParameter("@SubBy",order.SubBy),
             };
-            return Convert.ToInt32( SqliteHelper.ExecuteScalar(sql, param));
+            return Convert.ToInt32(SqliteHelper.ExecuteScalar(sql, param));
         }
+
+
+
+
     }
 }

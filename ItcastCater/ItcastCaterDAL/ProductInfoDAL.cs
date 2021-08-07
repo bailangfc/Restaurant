@@ -12,6 +12,55 @@ namespace ItcastCater.DAL
     public class ProductInfoDAL
     {
         ProductInfo pro = new ProductInfo();
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="txt">编号或者是拼音</param>
+        /// <param name="temp">标识 1--编号 2--拼音 3--啥也没有</param>
+        /// <returns></returns>
+        public List<ProductInfo> GetProductBySpellOrNum(string txt, int temp)
+        {
+            #region 冗余代码
+            //string sql = "select * from ProductInfo where DelFlag=0 and ProNum like @ProNum or ProSpell like @ProSpell";
+            //SQLiteParameter[] param =
+            //{
+            //    new SQLiteParameter("@ProNum","%"+txt+"%"),
+            //    new SQLiteParameter("@ProSpell","%"+txt+"%")
+            //};
+            //DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter(""));
+            #endregion
+
+            string sql = "select * from ProductInfo where DelFlag=0 ";
+            List<ProductInfo> list = new List<ProductInfo>();
+            DataTable dt = null;
+            if (temp == 1)
+            {
+                sql += "and ProNum like @numspell";
+                new SQLiteParameter("@numspell", txt);
+                dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@numspell", "%"+txt+"%"));
+            }
+            else if (temp == 2)
+            {
+                sql += "and ProSpell like @ProSpell";
+                new SQLiteParameter("@numspell", txt);
+                dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProSpell", "%" + txt + "%"));
+            }
+            else
+            {
+                dt = SqliteHelper.ExecuteTable(sql);
+            }
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow item in dt.Rows)
+                {
+                    ProductInfo pro = RowToProductInfo(item);
+                    list.Add(pro);
+                }
+            }
+            return list;
+        }
+
+
 
         /// <summary>
         /// 模糊查询
@@ -21,7 +70,7 @@ namespace ItcastCater.DAL
         public List<ProductInfo> GetProductByProNum(string proNum)
         {
             string sql = "select * from ProductInfo where DelFlag=0 and ProNum like @ProNum";
-            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProNum","%"+ proNum+"%"));
+            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProNum", "%" + proNum + "%"));
             List<ProductInfo> list = new List<ProductInfo>();
             if (dt.Rows.Count > 0)
             {
@@ -65,7 +114,7 @@ namespace ItcastCater.DAL
         public ProductInfo GetProductInfoByProId(int proId)
         {
             string sql = "select * from ProductInfo where DelFlag=0 and ProId=@ProId";
-            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProId",proId));
+            DataTable dt = SqliteHelper.ExecuteTable(sql, new SQLiteParameter("@ProId", proId));
             ProductInfo pro = null;
             if (dt.Rows.Count > 0)
             {
@@ -88,7 +137,7 @@ namespace ItcastCater.DAL
             return AddAndUpdateProductInfo(pro, sql, 2);
         }
 
-        public int AddAndUpdateProductInfo(ProductInfo pro,string sql, int temp)
+        public int AddAndUpdateProductInfo(ProductInfo pro, string sql, int temp)
         {
             List<SQLiteParameter> list = new List<SQLiteParameter>();
             SQLiteParameter[] param =
@@ -110,7 +159,8 @@ namespace ItcastCater.DAL
                 list.Add(new SQLiteParameter("@DelFlag", pro.DelFlag));
                 list.Add(new SQLiteParameter("@SubTime", pro.SubTime));
                 list.Add(new SQLiteParameter("@SubBy", pro.SubBy));
-            }else if (temp == 2)
+            }
+            else if (temp == 2)
             {
                 list.Add(new SQLiteParameter("@ProId", pro.ProId));
             }

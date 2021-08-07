@@ -102,7 +102,7 @@ namespace ItcastCater
         {
             //方式一
             //TabPage tb= tcin.SelectedTab;
-            //方式二
+            //方式二 获取当前选中的选项卡
             TabPage tp = tcin.TabPages[tcin.SelectedIndex];
             //获取当前选中房间的名字
             RoomInfo room = tp.Tag as RoomInfo;
@@ -158,6 +158,64 @@ namespace ItcastCater
 
 
 
+        }
+
+
+        public event EventHandler evtAddMoney;
+        //增加消费
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+           
+
+            TabPage tp = tcin.TabPages[tcin.SelectedIndex];
+            //获取当前选中房间的名字
+            RoomInfo room = tp.Tag as RoomInfo;
+            FrmEventArgs fea = new FrmEventArgs();
+            fea.Money = Convert.ToDecimal(room.RoomMinimunConsume);
+            fea.Name = room.RoomName;
+
+            //string roomName = room.RoomName;
+            //最低消费
+
+            //获取当前选项卡中的listview控件
+            ListView lv = tp.Controls[0] as ListView;
+
+            //判断是否有选中的餐桌
+            if (lv.SelectedItems.Count > 0)
+            {
+                //获取当前选中的餐桌
+                DeskInfo dk = lv.SelectedItems[0].Tag as DeskInfo;
+                if (dk.DeskState == 1)
+                {
+                    //fea.obj = dk;
+                    fea.Name = dk.DeskName;//餐桌的编号
+                    //订单的id，根据餐桌的id查找订单的id
+                    OrderInfoBLL obll = new OrderInfoBLL();
+                    int orderId = obll.GetOrderIdByDeskId(dk.DeskId);
+                    fea.Temp = orderId;
+
+
+                    FrmAddMoney fam = new FrmAddMoney();
+                    this.evtAddMoney += new EventHandler(fam.SetText);//注册事件
+                    if (this.evtAddMoney != null)
+                    {
+                        this.evtAddMoney(this, fea);
+                    }
+
+                    fam.FormClosed += new FormClosedEventHandler(fbi_FormClosed);
+
+                    fam.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("请选择开单的餐桌");
+                }
+            }
+            else
+            {
+                MessageBox.Show("没选中");
+            }
         }
     }
 }

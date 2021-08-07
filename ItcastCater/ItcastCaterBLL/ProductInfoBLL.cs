@@ -12,6 +12,18 @@ namespace ItcastCater.BLL
     {
         ProductInfoDAL dal = new ProductInfoDAL();
 
+
+        /// <summary>
+        /// 模糊查询
+        /// </summary>
+        /// <param name="txt">编号或者是拼音</param>
+        /// <param name="temp">标识 1--编号 2--拼音 3--啥也没有</param>
+        /// <returns></returns>
+        public List<ProductInfo> GetProductBySpellOrNum(string txt, int temp)
+        {
+            return dal.GetProductBySpellOrNum(txt, temp);
+        }
+
         /// <summary>
         /// 模糊查询
         /// </summary>
