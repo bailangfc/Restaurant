@@ -16,7 +16,7 @@ namespace ItcastCater
     {
         public FrmAddMoney()
         {
-            InitializeComponent();
+            InitializeComponent();//新分支测试
         }
         private int ID { get; set; }
         public void SetText(object sender, EventArgs e)
